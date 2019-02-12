@@ -7,7 +7,7 @@ namespace Calculator.Services
 {
     public class BananaService
     {
-        public double BananaPrice(DateTime startDate, int numberOfDays)
+        public string BananaPrice(DateTime startDate, int numberOfDays)
         {
 
             int day = startDate.Day;
@@ -17,8 +17,12 @@ namespace Calculator.Services
 
             for (int i = day; i < iterations; i++)
             {
+                if (startDate.DayOfWeek == DayOfWeek.Saturday || startDate.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    totalCost += 0.00;
+                }
 
-                if (i <= 6)
+                else if (i <= 6)
                 {
                     totalCost += 0.05;
                 }
@@ -38,8 +42,10 @@ namespace Calculator.Services
                 {
                     totalCost += 0.25;
                 }
-            }
-            return totalCost;
+                startDate = startDate.AddDays(1.0);
+            }            
+
+            return "You will spend $" + totalCost.ToString("0.00") + ".";
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Calculator.Controllers
         BananaService bananaService = new BananaService();
 
         [Route("api/bananas/{startDate:datetime}/{numberOfDays:int}"), HttpGet]
-        public double BananaPrice(DateTime startDate, int numberOfDays)
+        public string BananaPrice(DateTime startDate, int numberOfDays)
         {
             return bananaService.BananaPrice(startDate, numberOfDays);
         }
