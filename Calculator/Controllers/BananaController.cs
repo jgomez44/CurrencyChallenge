@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace Calculator.Controllers
 {
-    public class BananaController
+    public class BananaController : ApiController
     {
         BananaService bananaService = new BananaService();
 
